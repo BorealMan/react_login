@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
 import './create_account.css'
+import { Feedback } from './Feedback/feedback'
 import ACCOUNT_STATUS from '../enum/create_account_enum'
 
 function Create_Account(props: any) {
@@ -39,25 +40,29 @@ function Create_Account(props: any) {
     }, [account_status])
 
     return (
-        <div className='create-account-container'>
-            <div className='create-account'>
-                <div>
-                <h3>Welcome Guest!</h3>
-                <p>Please fill out the form below to create an account of your own!</p>
-                </div>
-                <div className='create-account-form'>
+        <div>
+            <div className='create-account-container'>
+                <div className='create-account'>
                     <div>
-                        <label className='create-account-form-label'>Username</label>
-                        <input type='text' onChange={(e) => {set_username(e.target.value)}} className='create-account-form-input'></input>
+                    <h3>Welcome Guest!</h3>
+                    <p>Please fill out the form below to create an account of your own!</p>
                     </div>
-                    <div>
-                        <label className='create-account-form-label'>Password</label>
-                        <input type='password' onChange={(e) => {set_password(e.target.value)}} className='create-account-form-input'></input>
+                    <div className='create-account-form'>
+                        <div>
+                            <label className='create-account-form-label'>Username</label>
+                            <input type='text' onChange={(e) => {set_username(e.target.value)}} className='create-account-form-input'></input>
+                        </div>
+                        <div>
+                            <label className='create-account-form-label'>Password</label>
+                            <input type='password' onChange={(e) => {set_password(e.target.value)}} className='create-account-form-input'></input>
+                        </div>
+                        <button className='create-account-button' onClick={() => handle_submit()}>Create Account</button>
                     </div>
-                    <button className='create-account-button' onClick={() => handle_submit()}>Create Account</button>
                 </div>
             </div>
+            <div><Feedback status={account_status} username={username}/></div>
         </div>
+
     );
 };
 
