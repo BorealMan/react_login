@@ -2,16 +2,14 @@
   margin:0px;
 }
 
-.App {
+.App{
   display: block;
   box-sizing: border-box;
-  margin: 5rem auto;
+  margin: 10% auto;
   width: 50rem;
   text-align: center;
   justify-content: center;
 }
-
-
 
 
 

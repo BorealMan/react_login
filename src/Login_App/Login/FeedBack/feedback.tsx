@@ -3,6 +3,7 @@ import LOGIN_STATE from '../../enum/login_enum'
 import Sucess from './Sucess/login_success'
 import Invalid_Password from './Invalid_Password/invalid_password'
 import Invalid_Username from './Invalid_Username/invalid_username'
+import Input_Required from './Input_Required/input_required'
 
 const Feedback = (props: any) => {
     if (props.status === LOGIN_STATE.not_logged_in) {
@@ -27,9 +28,14 @@ const Feedback = (props: any) => {
             </div>
         );
     }
+    else if (props.status === LOGIN_STATE.input_required){
+        return (
+            <Input_Required />
+        )
+    }
     else {
         return (
-            <div></div>
+            <div>Unknown Error Occured</div>
         );
     };
 };
