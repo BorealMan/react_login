@@ -1,0 +1,7 @@
+.invalid-username-message {
+    padding: .2rem;
+    color: red;
+    text-decoration: underline red;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}

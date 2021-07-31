@@ -1,13 +1,25 @@
 import './App.css';
-import React, { } from 'react';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Login from './Login/login'
+import Create_Account from './CreateAccount/create_account';
+import Config from './Config/Config'
 
 function App() {
 
   return (
-    <div className="App">
-      <h1>Default App</h1>
-      <p>This is a default app configured to test project quickly, enjoy!</p>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+          <Route path='/create-account'>
+            <Create_Account api={Config.api.local}/>
+          </Route>
+          <Route path='/'>
+            <Login api={Config.api.local} /> 
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 }
 

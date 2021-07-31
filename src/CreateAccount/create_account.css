@@ -1,0 +1,41 @@
+
+
+.create-account-container {
+    display: inline-block;
+
+}
+
+.create-account {
+    box-sizing: border-box;
+    width: 11.5rem;
+    padding: .5rem; 
+    border: 1px solid black;
+    background-color: lightgray;
+}
+
+.create-account-form {
+    padding: .5rem;
+}
+
+.create-account-form-input {
+    width: 80%;
+    border-radius: 8%;
+    padding: .2rem;
+}
+
+.create-account-form-label {
+    text-align: left;
+    display: block;
+    margin-left: 10%;
+}
+
+.create-account-button {
+    margin-top: .6rem;
+    padding: .3rem;
+    width: 85%;
+}
+
+.create-account-button:hover {
+    cursor: pointer;
+    letter-spacing: 1px;
+}

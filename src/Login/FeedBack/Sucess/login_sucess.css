@@ -1,0 +1,12 @@
+
+
+.sucessfully-logged-in {
+    display: block;
+}
+
+.logged_in_confirmation-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+

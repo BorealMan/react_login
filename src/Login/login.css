@@ -1,0 +1,78 @@
+.form-container {
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 2%;
+    padding-bottom: .2rem;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgrey;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    margin-bottom: .2rem;
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 8rem;
+  }
+  
+  .login-form-label {
+    text-align: left;
+    padding-top: .1rem;
+    padding-bottom: .1rem;
+    padding-left: .25rem;
+    background-color: lightgrey;
+    border: 1px solid black;
+  }
+  
+  .login-form-input {
+    padding: .3rem;
+    background-color: lightyellow;
+    border-radius: 5%;
+    border: 1px solid black;
+  }
+  
+  .login-form-button {
+    padding: .3rem;
+    font-weight: 600;
+    border-radius: 5%;
+    border: 1px solid black;
+    background-color: lightgrey;
+  }
+  
+  .login-form-button:hover {
+      letter-spacing: .05rem;
+      background-color: wheat;
+      cursor: pointer;
+  }
+
+  .login-create-account {
+      border-radius: 5%;
+      padding: .3rem;
+      text-decoration: none;
+      color: black;
+      border: 1px solid black;
+      background-color: lightgrey;
+      font-weight: 500;
+      font-size: .85rem;
+  }
+
+  .login-create-account:hover {
+    letter-spacing: .05rem;
+    background-color: wheat;
+    cursor: pointer;
+}
+
+  .forgot-password {
+      color: blue;
+      padding-top: .2rem;
+      padding-bottom: .2rem;
+      display: inline-block;
+  }
+
+  .forgot-password:hover {
+    letter-spacing: 1px;
+    cursor: pointer;
+  }
