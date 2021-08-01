@@ -1,3 +1,5 @@
+import Timer from './Timer/timer'
+import Jwt_Token from './JtwToken/jwt_token'
 
 export class Auth_Config {
     username: string = ""
@@ -5,56 +7,22 @@ export class Auth_Config {
         local: "http://localhost:4000",
         prod: "http://10.0.0.11:4000"
     }
-    jwt: any = {
-        auth_token: {
-            token: "",
-            issued: 0,
-            expires: 0
-        },
-        refresh_token: {
-            token: "",
-            issued: 0,
-            expires: 0
-        }
-    }
+    auth_token: Jwt_Token 
+    refresh_token: Jwt_Token
+    sessionTimer: Timer
     constructor() {
-    
+        this.sessionTimer = new Timer;
+        this.auth_token = new Jwt_Token();
+        this.refresh_token = new Jwt_Token();
     }
-    set_jwt_auth_token_expires(expires: number) {
-        this.jwt.auth_aoktn.expires = expires
+    get_refresh_token() {
+        return this.refresh_token
     }
-    get_jwt_auth_token_expires() {
-        return this.jwt.auth_token.expires
+    get_auth_token() {
+        return this.auth_token
     }
-    set_jwt_refresh_expires(expires: number) {
-        this.jwt.refresh_token.expires = expires
-    }
-    get_jwt_refresh_expires() {
-        return this.jwt.refresh_token.expires
-    }
-    set_jwt_refresh_issued(issued: number){
-        this.jwt.refresh_token.issued = issued
-    }
-    get_jwt_refresh_issued() {
-        return this.jwt.refresh_token.issued
-    }
-    set_jwt_auth_issued(issued: number) {
-        this.jwt.auth_token.issued = issued 
-    }
-    get_jwt_auth_issued() {
-        return this.jwt.auth_token.issued
-    }
-    set_jwt_refresh(token: string) {
-        this.jwt.refresh_token.token = token
-    }
-    get_jwt_refresh() {
-        return this.jwt.refresh_token.token
-    }
-    set_jwt_auth(token: string){
-        this.jwt.auth_token.token = token
-    }
-    get_jwt_auth() {
-        return this.jwt.auth_token.token
+    get_session_timer() {
+        return this.sessionTimer
     }
     get_local_api() {
         return this.api.local

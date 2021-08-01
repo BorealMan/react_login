@@ -1,5 +1,5 @@
 import Auth_Config from './auth_config'
 
-const Config = new Auth_Config();
+const Session = new Auth_Config();
 
-export default Config
+export default Session
