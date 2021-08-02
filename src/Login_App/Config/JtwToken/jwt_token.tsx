@@ -28,6 +28,11 @@ export class Jwt_Token{
     print_token() {
         console.log(`Token: ${this.token}\nIssued: ${this.issued}\nExpires: ${this.expires}`)
     }
+    reset_token() {
+        this.token = "";
+        this.issued = 0;
+        this.expires = 0;
+    }
 };
 
 export default Jwt_Token;

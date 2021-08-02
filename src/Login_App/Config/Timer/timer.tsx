@@ -25,7 +25,6 @@ class Timer {
         this.alarm === true ? this.alarm = false : this.alarm = true
     }
     async start_timer() {
-        console.log("Starting Timer")
         this.reset_timer();
         this.running = true;
         while (this.running){
@@ -35,12 +34,10 @@ class Timer {
             if (this.using_alarm) {
                 if (this.session_details.upTime % this.alarm_frequency === 0 && this.session_details.upTime !== 0){
                     this.alarm = true
-                    console.log("Timer went off")
                 }
             }
             this.session_details.currentTime += 1;
             this.session_details.upTime += 1;
-            this.print_timer();
             await this.sleep(1000);
         }
     };
@@ -49,7 +46,6 @@ class Timer {
         this.session_details.currentTime = this.session_details.startTime;
     };
     stop_timer() {
-        console.log("Stopping Timer")
         this.running = false;
     };
     sleep(ms: any) {

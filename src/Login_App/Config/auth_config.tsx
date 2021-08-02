@@ -36,8 +36,20 @@ export class Auth_Config {
     get_username() {
         return this.username
     }
-    print_session_details(){
+    print_session_details() {
         console.log(`Username: ${this.username}\n`)
+        this.sessionTimer.print_timer()
+        this.auth_token.print_token()
+        this.refresh_token.print_token()
+    }
+    clear_session() {
+        this.auth_token.reset_token()
+        this.refresh_token.reset_token()
+        this.username = ""
+        this.sessionTimer.stop_timer()
+    }
+    start_session() {
+        this.sessionTimer.start_timer()
     }
 };
 
