@@ -5,7 +5,7 @@ export class Auth_Config {
     login_status: boolean = false
     api: any = {
         local: "http://localhost:4000",
-        prod: "http://10.0.0.12:4000"
+        prod: "http://10.0.0.17:4000"
     }
     auth_token: Jwt_Token 
     refresh_token: Jwt_Token

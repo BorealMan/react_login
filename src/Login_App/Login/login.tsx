@@ -24,19 +24,23 @@ const Login = (props: any) => {
             set_logged_in(LOGIN_STATE.input_required);
             return
         }
-        await login_api.login(username, password).then((res:any) => {
-            if (res.data.message === 'Sucessfully Logged In') {
-                Session.get_auth_token().set_token(res.data.jwt.auth_token);
-                Session.get_refresh_token().set_token(res.data.jwt.refresh_token);
-                validate_auth_token();
-            }
-            else if (res.data === 'Invalid Password'){
-                set_logged_in(LOGIN_STATE.invalid_password);
-            }
-            else if (res.data === "User Doesn't Exist"){
-                set_logged_in(LOGIN_STATE.invalid_username);
-            };
-        })
+        try {
+            await login_api.login(username, password).then((res:any) => {
+                if (res.data.message === 'Sucessfully Logged In') {
+                    Session.get_auth_token().set_token(res.data.jwt.auth_token);
+                    Session.get_refresh_token().set_token(res.data.jwt.refresh_token);
+                    validate_auth_token();
+                }
+                else if (res.data === 'Invalid Password'){
+                    set_logged_in(LOGIN_STATE.invalid_password);
+                }
+                else if (res.data === "User Doesn't Exist"){
+                    set_logged_in(LOGIN_STATE.invalid_username);
+                };
+            })
+        } catch (err) {
+            return console.log(err)
+        }
     };
 
     const jwt_authToken_handler = async () => {
