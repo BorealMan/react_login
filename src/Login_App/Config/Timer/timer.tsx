@@ -9,9 +9,6 @@ class Timer {
     alarm: boolean = false;
     using_alarm: boolean = true;
     alarm_frequency: number = 60;
-    constructor(){
-
-    };
     get_upTime() {
         return this.session_details.upTime;
     };
@@ -38,7 +35,8 @@ class Timer {
             }
             this.session_details.currentTime += 1;
             this.session_details.upTime += 1;
-            await this.sleep(1000);
+            await this.sleep(5000);
+            this.print_timer()
         }
     };
     reset_timer(){

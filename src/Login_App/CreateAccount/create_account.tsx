@@ -4,6 +4,7 @@ import axios from 'axios'
 import './create_account.css'
 import { Feedback } from './Feedback/feedback'
 import ACCOUNT_STATUS from '../enum/create_account_enum'
+import API from '../Axios/api'
 
 function Create_Account(props: any) {
 
@@ -15,9 +16,8 @@ function Create_Account(props: any) {
         if (username === '' || password === ''){
             return
         }
-        await axios.post(`${props.api}/auth/create-account`, {username: username, password: password}).then((res) => {
-            console.log(res.data)
 
+        API.login_api.create_account(username, password).then((res:any) => {
             if (res.data === 'Sucessfully Registered') {
                 set_account_status(ACCOUNT_STATUS.accepted);
                 return <Redirect from='/create-account' to='/' />
@@ -34,7 +34,6 @@ function Create_Account(props: any) {
     useEffect(() => {
         console.log(account_status)
         if (account_status === ACCOUNT_STATUS.accepted){
-            console.log("I ran")
             window.location.href = "/"
         }
     }, [account_status])

@@ -4,6 +4,7 @@ export class Jwt_Token{
     token:   string = ""
     issued:  number = 0
     expires: number = 0
+    refresh_freq: number = 10
     constructor(){
 
     };
