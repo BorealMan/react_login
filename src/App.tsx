@@ -7,6 +7,6 @@ function App() {
   return (
     <Login_App />
   );
-}
+};
 
 export default App;

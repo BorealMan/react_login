@@ -5,7 +5,7 @@ class API {
     login_api: any = null
     api: any = null
     constructor(){
-        this.api = Session.get_prod_api()
+        this.api = Session.get_local_api()
         this.login_api = new LoginAPI(this.api)
     }
     loginAPI() {

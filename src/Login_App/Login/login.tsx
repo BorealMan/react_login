@@ -26,6 +26,7 @@ const Login = (props: any) => {
         }
         try {
             await login_api.login(username, password).then((res:any) => {
+                console.log(res.data)
                 if (res.data.message === 'Sucessfully Logged In') {
                     Session.get_auth_token().set_token(res.data.jwt.auth_token);
                     Session.get_refresh_token().set_token(res.data.jwt.refresh_token);
@@ -36,7 +37,10 @@ const Login = (props: any) => {
                 }
                 else if (res.data === "User Doesn't Exist"){
                     set_logged_in(LOGIN_STATE.invalid_username);
-                };
+                } 
+                else if (res.data.message === `Already Logged In`){
+                    set_logged_in(LOGIN_STATE.user_logged_in)
+                }
             })
         } catch (err) {
             return console.log(err)
